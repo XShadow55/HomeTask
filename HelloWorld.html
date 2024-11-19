@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> My First Page</title>
+
+<style>
+
+    body{
+    background-image:url(" images/12.jpg ");
+    background-attachment: fixed;
+    background-size: cover  ;
+    background-repeat: no-repeat;
+    }
+  .container {
+  text-align: left;
+  color: magenta;
+ text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+ .container1 {
+  text-align: right;
+  color: magenta;
+ text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+.container2 {
+  text-align: center;
+
+  color: magenta;
+ text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+.centered {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+#demo {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ font-family: "Sofia", sans-serif;
+font-size: 30px;
+color: blue;
+}
+
+.rotate {
+  animation: rotation 18s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+</style>
+
+<script>
+var btn =document.getElementById('hello_world');
+var flag=false;
+
+
+function playAudio(url) {
+var audio;
+<!--if (flag) {-->
+<!--audio.pause(); // Ставим аудио на паузу-->
+<!--audio.currentTime = 0;}-->
+if (!flag){
+  if (!audio){
+  var audio = new Audio(url);
+  }
+  audio.loop=true;
+  audio.play();
+  flag=true;}
+
+}
+
+
+</script>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+
+
+<div class="container">
+
+    <div id="hello_image">
+        <img src="images/pres.png" class="rotate" width=15% height=15% >
+    </div>
+
+    <div id="hello_world1">
+        <div class="centered">
+            <h1 >Hello, World !</h1>
+        </div>
+    </div>
+
+</div>
+<div class="container1">
+    <div id="hello_image1">
+        <div class="centered">
+            <body>
+                <img src="images/pr1.png" class="rotate" width=20% height=20% onclick="playAudio('images/song.mp3')" >
+            </body>
+
+        </div>
+    </div>
+
+</div>
+<div class="container2">
+
+    <div id="hello_image2">
+        <body>
+            <img src="images/pr2.png" class="rotate" width=15% height=15% >
+        </body>
+
+
+
+    </div>
+
+
+</div>
+
+<p id="demo"></p>
+<script>
+
+    document.getElementById("hello_image").addEventListener("click", function() {
+      document.getElementById("demo").innerHTML = "Happy New Year";
+    });
+</script>
+</body>
+</html>
